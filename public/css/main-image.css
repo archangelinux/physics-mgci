@@ -1,0 +1,136 @@
+
+#illust {
+  margin-left: 10%;
+  width: 600px;  
+  position: absolute;
+}
+  
+#container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform: rotateX(75deg) rotateY(30deg);
+  transform-style: preserve-3d;
+}
+
+.moshed-gif{
+  mix-blend-mode: screen;
+  opacity: 0.7;
+  border-radius: 50%;
+  transform: transition 0.4s;
+  transform-style: preserve-3d;
+}
+.gif--fade{
+  opacity: 0.6;
+  filter: grayscale(80%);
+}
+
+.pos {
+  position: absolute;
+  transform-style: preserve-3d;
+  animation-name: invert;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.planet {
+  background-color: #557eaa;  
+   background-image: url("https://i.postimg.cc/7YjtSRL9/image-instruments-Earth-satellite-NASA-Suomi-National-2012.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  transform-style: preserve-3d;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  animation-name: orbit;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; 
+  transform-style: preserve-3d;
+}
+
+#sun {
+  transform: rotateX(-75deg) rotate(-30deg);
+  transform-style: preserve-3d;
+}
+
+/* Orbit sizes */
+#earth.orbit {
+  width: 12.5em;
+  height: 12.5em;
+  margin-top: -6em;
+  margin-left: -6em; 
+  animation-duration: 6s;
+  font-size: 4.5em; /*circle size*/
+}
+
+/* Planet starting positions */
+#earth .pos {
+  left: 50%;
+  top: -0.3em; 
+  
+} 
+
+/* Planet animation durations */
+#earth.orbit, #earth .pos {
+  animation-duration: 5s;
+}
+
+
+#earth {
+  font-size: 4em;
+}
+
+
+@keyframes orbit {
+  0%   { transform: rotateZ(0deg); }
+  100% { transform: rotateZ(-360deg); } 
+}
+@keyframes invert {
+  0%   { transform: rotateX(-90deg) rotateY(360deg) rotateZ(0deg); }
+  100% { transform: rotateX(-90deg) rotateY(0deg) rotateZ(0deg); }
+}
+
+#earth .planet {
+  animation-name: shadow-earth;
+  animation-duration: 5s; }
+  
+@keyframes shadow-earth {
+  10% {
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+    /* TOP */ }
+
+  35% {
+    box-shadow: inset 16px 0 8px rgba(0, 0, 0, 0.5);
+    /* LEFT */ }
+
+  70% {
+    box-shadow: inset 40px -20px 16px rgba(0, 0, 0, 0.5);
+    /* BOTTOM */ }
+
+  70.01% {
+    box-shadow: inset -40px -20px 16px rgba(0, 0, 0, 0.5);
+    /* BOTTOM */ }
+
+  85% {
+    box-shadow: inset -16px 0 8px rgba(0, 0, 0, 0.5);
+    /* RIGHT */ }
+    
+  115% {
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+    /* TOP */ }    
+}
+
+
+
